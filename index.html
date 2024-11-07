@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+</head>
+<body>
+    
+    <div class="card">
+        <h4>QR Code Generator</h4>   
+        <div class="search">
+            <form action=""  method="POST">
+            <input type="text" id="urlInput" name="url" placeholder="Enter URL" spellcheck="false"> 
+            <button type="button" onclick="generateQRCode()">Generate</button>
+            </form>
+         </div>
+
+
+   
+
+        
+    <div id="qrcode">
+       
+    </div>
+
+    <script>
+        function generateQRCode() {
+           
+            const url = document.getElementById("urlInput").value;
+
+            
+            if (!url) {
+                alert("Please enter a URL.");
+                return;
+            }
+            document.getElementById("qrcode").style.display ="block";
+           
+            document.getElementById("qrcode").innerHTML = "";
+
+            
+            new QRCode(document.getElementById("qrcode"), {
+                text: url,
+                width: 145,
+                height: 145,
+                colorDark: "#000000",
+                colorLight: "#ffffff"
+                
+            });
+        }
+    </script>
+    </div>
+</body>
+</html>
